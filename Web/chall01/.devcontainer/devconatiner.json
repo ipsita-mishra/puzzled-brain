@@ -1,0 +1,6 @@
+{
+	"name": "Beans",
+	"build": {
+		"dockerfile": "Dockerfile.chall01"
+	}
+}
