@@ -1,6 +1,12 @@
 FROM ubuntu
-
+WORKDIR /tmp
 RUN apt update
-RUN apt install maven default-jdk -yy
-RUN mvn -v
-RUN java --version
+RUN apt install maven default-jdk wget -yy
+RUN wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.65/bin/apache-tomcat-9.0.65.tar.gz -P /tmp
+RUN cd /tmp
+RUN tar -xf /tmp/apache-tomcat-9.0.65.tar.gz
+RUN mv /tmp/apache-tomcat-9.0.65 /opt/tomcat
+# RUN cp deploy.war /opt/tomcat/webapps/deploy.war
+# RUN chmod +x /opt/tomcat/bin/startup.sh
+# RUN /opt/tomcat/bin/startup.sh
+# EXPOSE 8080
