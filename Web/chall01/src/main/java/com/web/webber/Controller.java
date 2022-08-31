@@ -5,6 +5,8 @@ import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @org.springframework.stereotype.Controller
 public class Controller {
@@ -15,7 +17,7 @@ public class Controller {
 	@GetMapping("/")
 	public String landing(Model model) {
 		String welcome = "Hello Security Champions !!";
-		String para = "There is more than 1 flag in this challenge. Good luck finding it! Remember it is always in the format : flag{}";
+		String para = "Welcome to Webber!!";
 		model.addAttribute("welcome", welcome);
 		model.addAttribute("para", para);
 		return "webber_home";
@@ -23,9 +25,20 @@ public class Controller {
 
 	@GetMapping("/robots.txt")
 	public String robots(Model model) {
-
 		model.addAttribute("f1", Arrays.toString(f1.getBytes(StandardCharsets.US_ASCII)));
 		return "robots";
+	}
+
+	@GetMapping("/feedback")
+	public String feedbackForm(Model model) {
+		model.addAttribute("feedback", new Feedback());
+		return "feedback";
+	}
+
+	@PostMapping("/feedback")
+	public String feedbackSubmit(@ModelAttribute Feedback feedback, Model model) {
+		model.addAttribute("feedback", feedback);
+		return "result";
 	}
 
 }
