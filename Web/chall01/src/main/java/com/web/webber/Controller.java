@@ -17,7 +17,7 @@ public class Controller {
 	@GetMapping("/")
 	public String landing(Model model) {
 		String welcome = "Hello Security Champions !!";
-		String para = "Welcome to Webber!!";
+		String para = "Welcome to Webber!! Webber has been created with love using a library widely used in the organization.";
 		model.addAttribute("welcome", welcome);
 		model.addAttribute("para", para);
 		return "webber_home";
