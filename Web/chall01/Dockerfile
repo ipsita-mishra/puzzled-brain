@@ -11,8 +11,6 @@ RUN cd /tmp
 RUN tar -xf /tmp/apache-tomcat-9.0.2.tar.gz
 RUN mv /tmp/apache-tomcat-9.0.2 /opt/tomcat
 RUN chown root: /opt/tomcat
-RUN chmod +x /opt/tomcat/bin/startup.sh
-RUN bash /opt/tomcat/bin/startup.sh
 
 WORKDIR $HOME
 COPY src ./src
