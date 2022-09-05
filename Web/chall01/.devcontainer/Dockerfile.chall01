@@ -1,4 +1,7 @@
 FROM ubuntu
+ENV F1="flag{webber_robots_starter}"
+ENV F2="flag{webber_springbeans_rce}"
+
 WORKDIR /tmp
 RUN apt update
 RUN apt install maven default-jdk wget -yy

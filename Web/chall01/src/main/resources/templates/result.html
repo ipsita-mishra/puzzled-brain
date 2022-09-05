@@ -8,6 +8,6 @@
 	<h1>Result</h1>
     <p th:text="'Name: ' + ${feedback.name}" />
     <p th:text="'Feedback: ' + ${feedback.feedback}" />
-    <a href="/feedback">Submit another message</a>
+    <a th:href="@{/feedback}">Submit another message</a>
 </body>
 </html>
