@@ -14,7 +14,7 @@ RUN chown root: /opt/tomcat
 
 WORKDIR $HOME
 COPY src ./src
-COPY pom.xml reload.sh .
+COPY pom.xml .
 RUN mvn clean package
 RUN mv $HOME/target/webber-0.0.1-SNAPSHOT.war $HOME/target/webber.war
 RUN cp $HOME/target/webber.war /opt/tomcat/webapps/webber.war
