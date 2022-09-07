@@ -5,7 +5,7 @@ ENV F2="flag{webber_springbeans_rce}"
 
 WORKDIR /tmp
 RUN apt update
-RUN apt install maven default-jdk wget cron -yy
+RUN apt install maven default-jdk wget -yy
 RUN wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.2/bin/apache-tomcat-9.0.2.tar.gz -P /tmp
 RUN cd /tmp
 RUN tar -xf /tmp/apache-tomcat-9.0.2.tar.gz
