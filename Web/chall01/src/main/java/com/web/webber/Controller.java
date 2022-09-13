@@ -17,7 +17,7 @@ public class Controller {
 	@GetMapping("/")
 	public String landing(Model model) {
 		String welcome = "Hello Security Champions !!";
-		String para = "Welcome to Webber!! Webber has been created with love using a commonly used library. Please be informed that this application re-deploys every 15 mins.";
+		String para = "Welcome to Webber!! Webber has been created with love using a commonly used library.";
 		model.addAttribute("welcome", welcome);
 		model.addAttribute("para", para);
 		return "webber_home";
