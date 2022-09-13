@@ -14,9 +14,10 @@ RUN chown root: /opt/tomcat
 
 WORKDIR $HOME
 COPY src ./src
-COPY pom.xml .
-RUN mvn clean package
+COPY pom.xml start.sh .
+RUN chmod +x $HOME/start.sh 
+RUN mvn clean package -DskipTests=true
 RUN mv $HOME/target/webber-0.0.1-SNAPSHOT.war $HOME/target/webber.war
 RUN cp $HOME/target/webber.war /opt/tomcat/webapps/webber.war
-CMD ["/opt/tomcat/bin/catalina.sh","run"]
+CMD ["nice","-n 5","/root/start.sh"]
 EXPOSE 8080
