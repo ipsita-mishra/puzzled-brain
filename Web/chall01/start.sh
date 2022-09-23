@@ -1,8 +1,9 @@
 #!/bin/bash
 echo "STARTING CATALINA"
+
+cat /etc/java-11-openjdk/security/java.security | grep securerandom.source
+
 /opt/tomcat/bin/catalina.sh run &
-# echo "STARTING RELOADER"
-# python3 /root/reloader.py
 
 echo "RELOADER SCRIPT READY -- $(date)"
 sleep 3m
@@ -16,8 +17,3 @@ do
     /opt/tomcat/bin/catalina.sh run &
     sleep 10m
 done
-
-
-
-
-

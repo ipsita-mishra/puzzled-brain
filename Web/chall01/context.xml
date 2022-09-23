@@ -1,0 +1,5 @@
+<Context antiJARLocking="true" path="/">
+ <Valve className="org.apache.catalina.valves.RemoteIpValve" />
+ <Valve className="org.apache.catalina.valves.RemoteAddrValve" deny="*" />
+ <Manager sessionAttributeValueClassNameFilter="java\.lang\.(?:Boolean|Integer|Long|Number|String)|org\.apache\.catalina\.filters\.CsrfPreventionFilter\$LruCache(?:\$1)?|java\.util\.(?:Linked)?HashMap"/>
+</Context>
