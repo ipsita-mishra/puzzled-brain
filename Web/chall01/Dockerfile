@@ -11,7 +11,6 @@ RUN cd /tmp
 RUN tar -xf /tmp/apache-tomcat-9.0.2.tar.gz
 RUN mv /tmp/apache-tomcat-9.0.2 /opt/tomcat
 RUN chown root: /opt/tomcat
-COPY context.xml /opt/tomcat/webapps/ROOT/manager/META-INF/context.xml
 COPY java.security /etc/java-11-openjdk/security/java.security
 
 

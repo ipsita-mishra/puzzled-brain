@@ -2,7 +2,10 @@
 echo "STARTING CATALINA"
 
 cat /etc/java-11-openjdk/security/java.security | grep securerandom.source
-
+rm -rf /opt/tomcat/webapps/docs
+rm -rf /opt/tomcat/webapps/examples
+rm -rf /opt/tomcat/webapps/host-manager
+rm -rf /opt/tomcat/webapps/manager
 /opt/tomcat/bin/catalina.sh run &
 
 echo "RELOADER SCRIPT READY -- $(date)"
