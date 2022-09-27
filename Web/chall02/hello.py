@@ -12,4 +12,4 @@ def res(val):
     result = subprocess.run(['bash', '-c', expr], stdout=subprocess.PIPE)
     return result.stdout
 
-run(host='0.0.0.0', port=9999, reloader=True, debug=True)
+run(host='0.0.0.0', port=9999)
