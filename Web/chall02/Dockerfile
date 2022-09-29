@@ -1,7 +1,7 @@
 FROM ubuntu
 RUN apt update && apt install python3 python3-pip -yy
 RUN useradd -m -d /nonroot nonroot 
-COPY . /nonroot/app/
+COPY flag.txt hello.py index.html requirements.txt /nonroot/app/
 
 USER nonroot
 WORKDIR /nonroot/app
