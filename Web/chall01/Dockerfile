@@ -1,6 +1,5 @@
 FROM ubuntu
 ENV HOME /root
-ENV F1="flag{webber_robots_starter}"
 ENV F2="flag{webber_springbeans_rce}"
 
 WORKDIR /tmp

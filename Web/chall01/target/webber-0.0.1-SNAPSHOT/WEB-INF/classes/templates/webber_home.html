@@ -1,0 +1,12 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Welcome to Webber!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1 th:text="${welcome}"></h1>
+    <p th:text="${para}"></p>
+    <a th:href="@{/feedback}">You can submit your feedback here</a>
+</body>
+</html>
