@@ -12,10 +12,12 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 
 public class ServletInitializer extends SpringBootServletInitializer {
 
+	private String fp = "/opt/tomcat/temp/flag.txt";
+	
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		try {
-			System.setProperty("f2", readFile(new File("~/flag.txt")));
+			System.setProperty("f2", readFile(new File(fp)));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
