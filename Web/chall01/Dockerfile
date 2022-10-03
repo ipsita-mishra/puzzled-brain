@@ -1,6 +1,5 @@
 FROM ubuntu
 ENV HOME /root
-ENV F2="flag{webber_springbeans_rce}"
 
 WORKDIR /tmp
 RUN apt update
@@ -15,7 +14,7 @@ COPY java.security /etc/java-11-openjdk/security/java.security
 
 WORKDIR $HOME
 COPY src ./src
-COPY pom.xml start.sh .
+COPY pom.xml start.sh flag.txt .
 RUN chmod +x $HOME/start.sh 
 RUN mvn clean package -DskipTests=true
 RUN mv $HOME/target/webber-0.0.1-SNAPSHOT.war $HOME/target/webber.war
