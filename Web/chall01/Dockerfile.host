@@ -1,0 +1,14 @@
+FROM ubuntu
+ENV HOME /root
+
+RUN apt update && apt install default-jdk wget -yy
+RUN wget https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.2/bin/apache-tomcat-9.0.2.tar.gz -P /tmp
+RUN cd /tmp && tar -xf /tmp/apache-tomcat-9.0.2.tar.gz
+RUN mv /tmp/apache-tomcat-9.0.2 /opt/tomcat
+
+WORKDIR $HOME
+COPY target/webber-0.0.1-SNAPSHOT.war start.sh .
+RUN mv $HOME/webber-0.0.1-SNAPSHOT.war $HOME/webber.war && cp $HOME/webber.war /opt/tomcat/webapps/webber.war 
+RUN chmod +x $HOME/start.sh 
+ENTRYPOINT ["/bin/bash", "-c", "nice -n 5 /root/start.sh"]
+EXPOSE 8080

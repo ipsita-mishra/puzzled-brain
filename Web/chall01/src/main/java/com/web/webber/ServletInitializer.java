@@ -12,17 +12,25 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
 
 public class ServletInitializer extends SpringBootServletInitializer {
 
-	private String fp = "/opt/tomcat/temp/flag.txt";
+	// private String fp = "/opt/tomcat/temp/flag.txt";
 	
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
 		try {
-			System.setProperty("f2", readFile(new File(fp)));
-		} catch (IOException e) {
+			System.setProperty("f2", "flag{webber_springbeans_rce}");
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return application.sources(WebberApplication.class);
 	}
+	// protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+	// 	try {
+	// 		System.setProperty("f2", readFile(new File(fp)));
+	// 	} catch (IOException e) {
+	// 		e.printStackTrace();
+	// 	}
+	// 	return application.sources(WebberApplication.class);
+	// }
 
 	private String readFile(File file) throws IOException {
         StringBuilder sb = new StringBuilder();

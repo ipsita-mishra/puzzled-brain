@@ -12,7 +12,12 @@ while [ 1 ]
 do
     echo "RELOADER SCRIPT CLEANING -- $(date)"
     /opt/tomcat/bin/catalina.sh stop &
-    rm -rf /opt/tomcat/webapps/webber
+    echo "RELOADER SCRIPT STOPPED CATALINA -- $(date)"
+    rm -rf /opt/tomcat/webapps/webber*
+    echo "RELOADER SCRIPT REMOVED WEBBER -- $(date)"
+    cp ~/webber.war /opt/tomcat/webapps/webber.war
+    echo "RELOADER SCRIPT ADDED NEW WEBBER -- $(date)"
+    echo "RELOADER SCRIPT RESTARTING CATALINA -- $(date)"
     /opt/tomcat/bin/catalina.sh run &
     sleep 10m
 done
