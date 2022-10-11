@@ -5,7 +5,7 @@ def check(x):
     useradd = " useradd "
     user = "user "
     lowerX = x.lower()
-    if (useradd and user in lowerX) and (lowerX.find(useradd) < lowerX.find(user)):
+    if all(x in lowerX for x in [useradd, user]) and (lowerX.find(useradd) < lowerX.find(user)):
         return True
     else: 
         return False
